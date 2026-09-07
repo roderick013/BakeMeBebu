@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story | Bake Me, Bebu!</title>
+  <meta name="description" content="Where warmth and kindness bake together. Read the story of Bake Me, Bebu! (@bakemebebuu), our community journey in Biñan, Laguna, and our love for baking treats for Sweethearts." />
+  <link rel="icon" href="images/bmb-profile.jpg" type="image/jpeg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: {
+              50: '#FCF9F2',
+              100: '#F7EFE5',
+              200: '#EFE2D3',
+            },
+            blush: {
+              50: '#FFF1F2',
+              100: '#FFE4E6',
+              200: '#FECDD3',
+              400: '#F472B6',
+              500: '#E07A7C',
+              600: '#C85A5C',
+            },
+            caramel: {
+              400: '#F59E0B',
+              500: '#D97706',
+              600: '#B45309',
+            },
+            truffle: {
+              700: '#4A3528',
+              800: '#3E2723',
+              900: '#231815',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            script: ['"Caveat"', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-cream-50 text-truffle-900 flex flex-col min-h-screen">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-[#2D201A] text-[#FAF5EE] text-xs sm:text-sm py-2 px-4 text-center tracking-wide font-medium flex items-center justify-center gap-2">
+    <span class="inline-block animate-pulse text-amber-300">✨</span>
+    <span>Where warmth and kindness bake together.. Follow our journey on Instagram</span>
+    <span class="hidden md:inline text-rose-300">|</span>
+    <a href="https://www.instagram.com/bakemebebuu/" target="_blank" class="hidden md:inline-flex items-center gap-1 font-semibold text-rose-300 hover:text-white underline transition">
+      <i class="fa-brands fa-instagram"></i> @bakemebebuu
+    </a>
+  </div>
+
+  <!-- NAVBAR -->
+  <header id="site-navbar" class="sticky top-0 z-40 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-rose-300 shadow-sm flex-shrink-0 group-hover:scale-105 transition-transform">
+          <img src="images/bmb-profile.jpg" alt="Bake Me, Bebu! Official Logo" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif font-bold text-2xl tracking-tight text-truffle-900 group-hover:text-blush-500 transition-colors">
+            Bake Me, Bebu!
+          </span>
+          <span class="text-[10px] tracking-[0.2em] font-semibold text-stone-500 uppercase -mt-1 font-sans">
+            Warmth & Kindness Baked Fresh
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="nav-link text-stone-700 hover:text-blush-500 transition py-1">Home</a>
+        <a href="products.html" class="nav-link text-stone-700 hover:text-blush-500 transition py-1">Order Menu</a>
+        <a href="about.html" class="nav-link text-stone-700 hover:text-blush-500 transition py-1">Our Story</a>
+        <a href="contact.html" class="nav-link text-stone-700 hover:text-blush-500 transition py-1">Contact</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <!-- Order Bag Trigger Button -->
+        <button type="button" class="cart-btn-trigger relative p-2.5 rounded-full bg-white border border-stone-200 text-stone-700 hover:text-blush-500 hover:border-blush-200 transition shadow-sm" title="Your Order Bag">
+          <i class="fa-solid fa-bag-shopping text-lg"></i>
+          <span class="cart-count-badge hidden absolute -top-1 -right-1 w-5 h-5 rounded-full bg-blush-500 text-white text-[11px] font-bold flex items-center justify-center shadow">
+            0
+          </span>
+        </button>
+
+        <!-- Direct Checkout Link -->
+        <a href="checkout.html" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold btn-primary shadow-sm">
+          <span>Checkout</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" type="button" class="md:hidden p-2.5 rounded-xl bg-white border border-stone-200 text-stone-700 focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-nav-menu" class="hidden md:hidden bg-white/95 border-b border-stone-200 px-6 py-5 shadow-lg backdrop-blur-md">
+      <div class="flex flex-col gap-4 font-medium text-base">
+        <a href="index.html" class="nav-link py-2 border-b border-stone-100 text-stone-800">Home</a>
+        <a href="products.html" class="nav-link py-2 border-b border-stone-100 text-stone-800">Order Menu</a>
+        <a href="about.html" class="nav-link py-2 border-b border-stone-100 text-stone-800">Our Story</a>
+        <a href="contact.html" class="nav-link py-2 border-b border-stone-100 text-stone-800">Contact</a>
+        <a href="checkout.html" class="nav-link py-2 text-rose-600 font-bold">Go to Checkout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- STORY HERO SECTION -->
+  <section class="py-16 md:py-24 bakery-pattern border-b border-stone-200/70 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-100 border border-rose-200 text-rose-700 text-xs font-semibold">
+            <i class="fa-solid fa-heart text-rose-500"></i>
+            <span>Our Heartfelt Journey</span>
+          </div>
+
+          <h1 class="font-serif text-4xl sm:text-5xl font-bold text-truffle-900 leading-tight">
+            Where warmth and kindness bake together.
+          </h1>
+
+          <p class="text-stone-600 text-base sm:text-lg leading-relaxed">
+            Welcome to the home of <strong class="text-stone-900">Bake Me, Bebu! (B.M.B.)</strong>. We started with a genuine love for baking comforting homemade treats and sharing that sweetness with people around us.
+          </p>
+
+          <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
+            Based in <strong>Biñan, Laguna</strong>, we bake every cookie, banana loaf, cupcake, and mini bouquet cake with heart. To us, every customer is a <em>Sweetheart</em>, and every bake is a way to make someone's ordinary day a little warmer.
+          </p>
+        </div>
+
+        <div class="lg:col-span-5 relative">
+          <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-square relative group">
+            <img src="images/ig-post-12.jpg" alt="BMB Sold Out at PUP Biñan Campus" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+            <div class="absolute bottom-5 left-5 right-5 text-white">
+              <span class="text-xs uppercase tracking-widest text-rose-200 font-bold">Community Pop-up</span>
+              <p class="font-serif text-lg font-bold">Sold Out with PUP Biñan Sweethearts!</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BAKING PHILOSOPHY & VALUES -->
+  <section class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="font-script text-2xl text-caramel-600">What We Stand For</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-truffle-900 mt-1">
+        The B.M.B. Promise
+      </h2>
+      <p class="text-stone-600 text-sm mt-2">
+        We make sure every sweet bite delivers genuine comfort and affordable delight.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <div class="p-8 rounded-3xl bg-white border border-stone-200/90 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-cookie"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">Homemade Warmth</h3>
+          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+            Our recipes are refined over time with pure butter, rich cocoa, and sweet ripe bananas. No commercial shortcuts.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-stone-100 text-xs text-amber-700 font-semibold">
+          Better & Better Over Time
+        </div>
+      </div>
+
+      <div class="p-8 rounded-3xl bg-white border border-stone-200/90 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-rose-100 text-blush-500 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-wallet"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">Always Budget Friendly</h3>
+          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+            Cravings on a budget? We got you! We believe everyone deserves gourmet-quality sweetness at wallet-friendly prices.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-stone-100 text-xs text-rose-600 font-semibold">
+          Affordable Sweet Treats
+        </div>
+      </div>
+
+      <div class="p-8 rounded-3xl bg-white border border-stone-200/90 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">Sweetheart Community</h3>
+          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+            From local student pop-ups to regular regulars, we love hearing how our pastries brightened someone's celebration.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-stone-100 text-xs text-purple-600 font-semibold">
+          Community First
+        </div>
+      </div>
+
+      <div class="p-8 rounded-3xl bg-white border border-stone-200/90 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">Empowering Resellers</h3>
+          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+            Helping students and aspiring entrepreneurs launch their own pastry side-hustle with great bulk discount packages.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-stone-100 text-xs text-emerald-600 font-semibold">
+          Reseller Growth
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AUTHENTIC INSTAGRAM POSTS GALLERY -->
+  <section class="py-16 bg-[#F7EFE5] border-y border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="font-script text-2xl text-blush-500">Real Bakes From Instagram</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-truffle-900 mt-1">Our Sweet Moments</h2>
+        <p class="text-stone-600 text-sm mt-2">
+          Real snapshots directly from <a href="https://www.instagram.com/bakemebebuu/" class="text-rose-600 font-semibold underline">@bakemebebuu</a>
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <div class="rounded-2xl overflow-hidden shadow-md border-2 border-white aspect-square bg-white">
+          <img src="images/ig-post-2.jpg" alt="Assorted Cookies Box" class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+        </div>
+
+        <div class="rounded-2xl overflow-hidden shadow-md border-2 border-white aspect-square bg-white">
+          <img src="images/ig-post-7.jpg" alt="Mini Bouquet Cake" class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+        </div>
+
+        <div class="rounded-2xl overflow-hidden shadow-md border-2 border-white aspect-square bg-white">
+          <img src="images/ig-post-8.jpg" alt="Classic Banana Bread" class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+        </div>
+
+        <div class="rounded-2xl overflow-hidden shadow-md border-2 border-white aspect-square bg-white">
+          <img src="images/ig-post-10.jpg" alt="Chocolate Moist Cupcakes" class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION BANNER -->
+  <section class="py-16 bg-gradient-to-r from-rose-100 via-rose-50 to-amber-50 border-t border-rose-200/60">
+    <div class="max-w-4xl mx-auto px-4 text-center space-y-6">
+      <div class="font-script text-3xl text-blush-500">Craving something sweet?</div>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-truffle-900">
+        Message us and let warmth bake your day!
+      </h2>
+      <p class="text-stone-600 text-sm sm:text-base max-w-xl mx-auto">
+        Whether you want a box of assorted cookies, a heart-shaped tub of s'mores brownies, or bulk orders for your business, we're ready!
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a href="products.html" class="btn-primary px-8 py-3.5 rounded-full font-semibold text-sm shadow-md flex items-center gap-2">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span>Order Online Now</span>
+        </a>
+        <a href="checkout.html" class="px-8 py-3.5 rounded-full font-semibold text-sm bg-stone-900 hover:bg-stone-800 text-white transition flex items-center gap-2 shadow">
+          <span>Go to Checkout</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER BAG SLIDE-OVER DRAWER -->
+  <div id="cart-drawer-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden"></div>
+  <aside id="cart-drawer-panel" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-white z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="p-5 border-b border-stone-100 flex items-center justify-between bg-cream-50">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-rose-100 text-blush-500 flex items-center justify-center text-sm">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+        <div>
+          <h3 class="font-serif font-bold text-stone-900 text-lg">Your Order Bag</h3>
+          <p class="text-xs text-stone-500">Review selected treats before checkout</p>
+        </div>
+      </div>
+      <button id="close-cart-drawer" class="p-2 text-stone-400 hover:text-stone-800 rounded-lg transition" aria-label="Close cart">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+
+    <div id="cart-drawer-items" class="flex-grow overflow-y-auto p-5 space-y-3"></div>
+
+    <div class="p-5 border-t border-stone-100 bg-cream-50 space-y-4">
+      <div class="flex justify-between items-center text-sm">
+        <span class="text-stone-500 font-medium">Order Subtotal:</span>
+        <span id="cart-drawer-subtotal" class="font-bold text-xl text-stone-900">₱0.00</span>
+      </div>
+      <p class="text-[11px] text-stone-400">
+        *Courier delivery (₱80) or Free self-pickup selected at checkout.
+      </p>
+      <div class="grid grid-cols-2 gap-3">
+        <a href="products.html" class="text-center py-3 rounded-full border border-stone-300 text-stone-700 font-semibold text-xs hover:bg-stone-100 transition">
+          Add More Treats
+        </a>
+        <button id="btn-proceed-to-checkout" class="btn-primary py-3 rounded-full text-white font-semibold text-xs transition flex items-center justify-center gap-1.5 shadow-md">
+          <span>Checkout Now</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#231815] text-[#F7EFE5] pt-16 pb-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-stone-800">
+        
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full overflow-hidden border border-rose-400 flex-shrink-0">
+              <img src="images/bmb-profile.jpg" alt="Bake Me, Bebu! Logo" class="w-full h-full object-cover" />
+            </div>
+            <span class="font-serif font-bold text-2xl text-white tracking-tight">Bake Me, Bebu!</span>
+          </div>
+          <p class="text-stone-400 text-xs sm:text-sm leading-relaxed max-w-sm">
+            Where warmth and kindness bake together. Homemade cookies, mini bouquet cakes, crinkles, cupcakes, and classic banana bread straight from Biñan, Laguna.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://www.instagram.com/bakemebebuu/" target="_blank" class="w-9 h-9 rounded-full bg-stone-800 hover:bg-rose-600 text-stone-300 hover:text-white flex items-center justify-center transition" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="space-y-3 text-xs sm:text-sm">
+          <h4 class="font-serif font-bold text-white tracking-wider uppercase text-sm">Explore</h4>
+          <ul class="space-y-2 text-stone-400">
+            <li><a href="index.html" class="hover:text-rose-300 transition">Home</a></li>
+            <li><a href="products.html" class="hover:text-rose-300 transition">Order Menu</a></li>
+            <li><a href="products.html#reseller-program" class="hover:text-rose-300 transition">Reseller Program</a></li>
+            <li><a href="checkout.html" class="hover:text-rose-300 transition">Checkout</a></li>
+            <li><a href="about.html" class="hover:text-rose-300 transition">Our Story</a></li>
+            <li><a href="contact.html" class="hover:text-rose-300 transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3 text-xs sm:text-sm">
+          <h4 class="font-serif font-bold text-white tracking-wider uppercase text-sm">Baking Schedule</h4>
+          <div class="text-stone-400 space-y-1">
+            <p><strong class="text-stone-300">Tuesday - Sunday:</strong></p>
+            <p>Fresh batches baked daily</p>
+            <p class="pt-2"><strong class="text-stone-300">Location Hub:</strong></p>
+            <p class="text-rose-400">Biñan, Laguna</p>
+          </div>
+        </div>
+
+        <div class="space-y-3 text-xs sm:text-sm">
+          <h4 class="font-serif font-bold text-white tracking-wider uppercase text-sm">Pickup & Delivery</h4>
+          <div class="text-stone-400 space-y-2">
+            <p class="flex items-start gap-2">
+              <i class="fa-solid fa-location-dot text-rose-400 mt-1"></i>
+              <span>Biñan, Laguna & South Luzon</span>
+            </p>
+            <p class="flex items-start gap-2">
+              <i class="fa-solid fa-truck-fast text-rose-400 mt-1"></i>
+              <span>Grab / Lalamove / Hub Pickup</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
+        <p>© 2026 Bake Me, Bebu! All rights reserved.</p>
+        <p class="flex items-center gap-1">
+          Made with <i class="fa-solid fa-heart text-rose-500"></i> for <a href="https://www.instagram.com/bakemebebuu/" target="_blank" class="text-rose-400 underline">@bakemebebuu</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- jQuery & Custom Script -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

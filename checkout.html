@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout & Order Online | Bake Me, Bebu!</title>
+  <meta name="description" content="Order fresh cookies, banana bread, mini bouquet cakes, and cupcakes online from Bake Me, Bebu! (@bakemebebuu) with delivery or pickup in Biñan, Laguna." />
+  <link rel="icon" href="images/bmb-profile.jpg" type="image/jpeg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: {
+              50: '#FCF9F2',
+              100: '#F7EFE5',
+              200: '#EFE2D3',
+            },
+            blush: {
+              50: '#FFF1F2',
+              100: '#FFE4E6',
+              200: '#FECDD3',
+              400: '#F472B6',
+              500: '#E07A7C',
+              600: '#C85A5C',
+            },
+            caramel: {
+              400: '#F59E0B',
+              500: '#D97706',
+              600: '#B45309',
+            },
+            truffle: {
+              700: '#4A3528',
+              800: '#3E2723',
+              900: '#231815',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            script: ['"Caveat"', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-cream-50 text-truffle-900 flex flex-col min-h-screen">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-[#2D201A] text-[#FAF5EE] text-xs sm:text-sm py-2 px-4 text-center tracking-wide font-medium flex items-center justify-center gap-2">
+    <span class="inline-block animate-pulse text-amber-300">✨</span>
+    <span>Secure Online Ordering • Freshly baked to order in Biñan, Laguna</span>
+    <span class="hidden md:inline text-rose-300">|</span>
+    <a href="https://www.instagram.com/bakemebebuu/" target="_blank" class="hidden md:inline-flex items-center gap-1 font-semibold text-rose-300 hover:text-white underline transition">
+      <i class="fa-brands fa-instagram"></i> @bakemebebuu
+    </a>
+  </div>
+
+  <!-- NAVBAR -->
+  <header id="site-navbar" class="sticky top-0 z-40 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-rose-300 shadow-sm flex-shrink-0 group-hover:scale-105 transition-transform">
+          <img src="images/bmb-profile.jpg" alt="Bake Me, Bebu! Official Logo" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif font-bold text-2xl tracking-tight text-truffle-900 group-hover:text-blush-500 transition-colors">
+            Bake Me, Bebu!
+          </span>
+          <span class="text-[10px] tracking-[0.2em] font-semibold text-stone-500 uppercase -mt-1 font-sans">
+            Warmth & Kindness Baked Fresh
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="nav-link text-stone-700 hover:text-blush-500 transition py-1">Home</a>
+        <a href="products.html" class="nav-link text-stone-700 hover:text-blush-500 transition py-1">Order Menu</a>
+        <a href="about.html" class="nav-link text-stone-700 hover:text-blush-500 transition py-1">Our Story</a>
+        <a href="contact.html" class="nav-link text-stone-700 hover:text-blush-500 transition py-1">Contact</a>
+      </nav>
+
+      <!-- Cart Trigger Button -->
+      <div class="flex items-center gap-3">
+        <button type="button" class="cart-btn-trigger relative p-2.5 rounded-full bg-white border border-stone-200 text-stone-700 hover:text-blush-500 hover:border-blush-200 transition shadow-sm" title="Your Order Bag">
+          <i class="fa-solid fa-bag-shopping text-lg"></i>
+          <span class="cart-count-badge hidden absolute -top-1 -right-1 w-5 h-5 rounded-full bg-blush-500 text-white text-[11px] font-bold flex items-center justify-center shadow">
+            0
+          </span>
+        </button>
+
+        <a href="checkout.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold btn-primary shadow-sm">
+          <span>Checkout</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+
+        <button id="mobile-menu-btn" type="button" class="md:hidden p-2.5 rounded-xl bg-white border border-stone-200 text-stone-700 focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-nav-menu" class="hidden md:hidden bg-white/95 border-b border-stone-200 px-6 py-5 shadow-lg backdrop-blur-md">
+      <div class="flex flex-col gap-4 font-medium text-base">
+        <a href="index.html" class="nav-link py-2 border-b border-stone-100 text-stone-800">Home</a>
+        <a href="products.html" class="nav-link py-2 border-b border-stone-100 text-stone-800">Order Menu</a>
+        <a href="about.html" class="nav-link py-2 border-b border-stone-100 text-stone-800">Our Story</a>
+        <a href="contact.html" class="nav-link py-2 border-b border-stone-100 text-stone-800">Contact</a>
+        <a href="checkout.html" class="nav-link py-2 text-rose-600 font-bold">Go to Checkout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CHECKOUT MAIN CONTENT -->
+  <main class="flex-grow py-10 md:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    
+    <div class="mb-8 text-center sm:text-left">
+      <span class="font-script text-2xl text-blush-500">Order Online</span>
+      <h1 class="font-serif text-3xl sm:text-4xl font-bold text-truffle-900 mt-1">Complete Your Sweet Order</h1>
+      <p class="text-stone-600 text-xs sm:text-sm mt-1">Provide your delivery or pickup details below to place your order directly.</p>
+    </div>
+
+    <!-- Empty State if cart is empty -->
+    <div id="checkout-empty-state" class="hidden text-center py-20 bg-white rounded-3xl border border-stone-200/80 shadow-sm p-8 max-w-2xl mx-auto">
+      <div class="w-20 h-20 mx-auto mb-4 bg-rose-50 rounded-full flex items-center justify-center text-rose-400 text-3xl">
+        <i class="fa-solid fa-bag-shopping"></i>
+      </div>
+      <h3 class="font-serif text-2xl font-bold text-stone-900">Your order bag is currently empty</h3>
+      <p class="text-stone-500 text-xs sm:text-sm mt-2 max-w-md mx-auto">
+        You haven’t added any treats yet! Explore our assorted cookies, moist chocolate cupcakes, or banana bread loaves to get started.
+      </p>
+      <div class="mt-6">
+        <a href="products.html" class="btn-primary px-8 py-3.5 rounded-full font-bold text-sm shadow-md inline-flex items-center gap-2">
+          <span>Explore Baked Menu</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Checkout Grid -->
+    <div id="checkout-content-grid" class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      
+      <!-- Left Column: Checkout Form (Customer, Fulfillment, Payment) -->
+      <div class="lg:col-span-7 space-y-8">
+        <form id="bmb-checkout-form" class="space-y-8">
+          
+          <!-- Section 1: Customer Contact -->
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-sm space-y-5">
+            <div class="flex items-center gap-3 border-b border-stone-100 pb-4">
+              <div class="w-8 h-8 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-sm font-bold">1</div>
+              <h3 class="font-serif font-bold text-lg text-stone-900">Customer Information</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="order-customer-name" class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+                  Full Name <span class="text-rose-500">*</span>
+                </label>
+                <input type="text" id="order-customer-name" required placeholder="e.g. Maria Clara Santos" class="checkout-field w-full px-4 py-3 rounded-xl border border-stone-300 text-xs sm:text-sm focus:outline-none focus:border-rose-400 bg-stone-50/50" />
+              </div>
+
+              <div>
+                <label for="order-customer-phone" class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+                  Mobile Number <span class="text-rose-500">*</span>
+                </label>
+                <input type="tel" id="order-customer-phone" required placeholder="0917-xxx-xxxx" class="checkout-field w-full px-4 py-3 rounded-xl border border-stone-300 text-xs sm:text-sm focus:outline-none focus:border-rose-400 bg-stone-50/50" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="order-customer-email" class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+                  Email Address (Optional)
+                </label>
+                <input type="email" id="order-customer-email" placeholder="maria@example.com" class="checkout-field w-full px-4 py-3 rounded-xl border border-stone-300 text-xs sm:text-sm focus:outline-none focus:border-rose-400 bg-stone-50/50" />
+              </div>
+
+              <div>
+                <label for="order-customer-ig" class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+                  Instagram Handle (Optional)
+                </label>
+                <input type="text" id="order-customer-ig" placeholder="@your_handle" class="checkout-field w-full px-4 py-3 rounded-xl border border-stone-300 text-xs sm:text-sm focus:outline-none focus:border-rose-400 bg-stone-50/50" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Fulfillment Method -->
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-sm space-y-5">
+            <div class="flex items-center gap-3 border-b border-stone-100 pb-4">
+              <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-sm font-bold">2</div>
+              <h3 class="font-serif font-bold text-lg text-stone-900">Fulfillment & Schedule</h3>
+            </div>
+
+            <div class="space-y-3">
+              <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+                Choose Delivery or Pickup:
+              </label>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <label class="cursor-pointer border-2 border-stone-200 rounded-2xl p-4 flex items-center justify-between hover:border-blush-500 transition has-[:checked]:border-blush-500 has-[:checked]:bg-rose-50/50">
+                  <div class="flex items-center gap-3">
+                    <input type="radio" name="fulfillment-mode" value="delivery" checked class="accent-blush-500 w-4 h-4" />
+                    <div>
+                      <span class="font-bold text-sm block text-stone-900">🛵 Courier Delivery</span>
+                      <span class="text-xs text-stone-500">Grab / Lalamove dispatch</span>
+                    </div>
+                  </div>
+                  <span class="text-xs font-bold text-stone-700">+₱80 fee</span>
+                </label>
+
+                <label class="cursor-pointer border-2 border-stone-200 rounded-2xl p-4 flex items-center justify-between hover:border-blush-500 transition has-[:checked]:border-blush-500 has-[:checked]:bg-rose-50/50">
+                  <div class="flex items-center gap-3">
+                    <input type="radio" name="fulfillment-mode" value="pickup" class="accent-blush-500 w-4 h-4" />
+                    <div>
+                      <span class="font-bold text-sm block text-stone-900">🏬 Self-Pickup</span>
+                      <span class="text-xs text-stone-500">Biñan, Laguna Hub</span>
+                    </div>
+                  </div>
+                  <span class="text-xs font-bold text-emerald-600">FREE</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Delivery Address Section -->
+            <div id="delivery-address-section" class="space-y-3 pt-2">
+              <label for="order-delivery-address" class="block text-xs font-bold text-stone-700 uppercase tracking-wider">
+                Complete Delivery Address & Landmark <span class="text-rose-500">*</span>
+              </label>
+              <textarea id="order-delivery-address" rows="3" placeholder="House/Unit #, Street, Barangay, City/Municipality, Landmark (e.g. Near PUP Biñan / Olivarez Plaza)" class="checkout-field w-full px-4 py-3 rounded-xl border border-stone-300 text-xs sm:text-sm focus:outline-none focus:border-rose-400 bg-stone-50/50"></textarea>
+            </div>
+
+            <!-- Date & Time Slot Selection -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div>
+                <label for="order-target-date" class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+                  Target Date <span class="text-rose-500">*</span>
+                </label>
+                <input type="date" id="order-target-date" required class="checkout-field w-full px-4 py-3 rounded-xl border border-stone-300 text-xs sm:text-sm focus:outline-none focus:border-rose-400 bg-stone-50/50 text-stone-800" />
+              </div>
+
+              <div>
+                <label for="order-time-slot" class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+                  Preferred Time Window <span class="text-rose-500">*</span>
+                </label>
+                <select id="order-time-slot" required class="checkout-field w-full px-4 py-3 rounded-xl border border-stone-300 text-xs sm:text-sm focus:outline-none focus:border-rose-400 bg-stone-50/50 text-stone-800">
+                  <option value="">Select a time slot...</option>
+                  <option value="Morning (10:00 AM – 12:00 PM)">Morning (10:00 AM – 12:00 PM)</option>
+                  <option value="Early Afternoon (1:00 PM – 3:00 PM)">Early Afternoon (1:00 PM – 3:00 PM)</option>
+                  <option value="Late Afternoon (4:00 PM – 6:00 PM)">Late Afternoon (4:00 PM – 6:00 PM)</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="order-special-notes" class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+                Special Instructions or Dedication Notes
+              </label>
+              <input type="text" id="order-special-notes" placeholder="e.g. Please include greeting card 'Happy Birthday Bebu!' or less sugar" class="checkout-field w-full px-4 py-3 rounded-xl border border-stone-300 text-xs sm:text-sm focus:outline-none focus:border-rose-400 bg-stone-50/50" />
+            </div>
+          </div>
+
+          <!-- Section 3: Payment Method -->
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-sm space-y-5">
+            <div class="flex items-center gap-3 border-b border-stone-100 pb-4">
+              <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-sm font-bold">3</div>
+              <h3 class="font-serif font-bold text-lg text-stone-900">Payment Option</h3>
+            </div>
+
+            <div class="space-y-3">
+              <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+                Select Your Payment Channel:
+              </label>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <label class="cursor-pointer border-2 border-stone-200 rounded-2xl p-4 flex items-center gap-3 hover:border-blush-500 transition has-[:checked]:border-blush-500 has-[:checked]:bg-rose-50/50">
+                  <input type="radio" name="payment-mode" value="gcash" checked class="accent-blush-500 w-4 h-4" />
+                  <div>
+                    <span class="font-bold text-xs sm:text-sm block text-stone-900">GCash</span>
+                    <span class="text-[11px] text-stone-500">Send to 0976 126 9382</span>
+                  </div>
+                </label>
+
+                <label class="cursor-pointer border-2 border-stone-200 rounded-2xl p-4 flex items-center gap-3 hover:border-blush-500 transition has-[:checked]:border-blush-500 has-[:checked]:bg-rose-50/50">
+                  <input type="radio" name="payment-mode" value="cod" class="accent-blush-500 w-4 h-4" />
+                  <div>
+                    <span class="font-bold text-xs sm:text-sm block text-stone-900">Cash on Delivery (COD)</span>
+                    <span class="text-[11px] text-stone-500">Pay cash upon delivery / pickup</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- GCash Payment Info Box -->
+            <div id="payment-details-gcash" class="payment-details-box bg-blue-50/70 p-5 rounded-2xl border border-blue-200/90 space-y-3">
+              <div class="flex items-center gap-2 text-blue-800 font-bold text-sm">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <span>GCash Payment Instructions</span>
+              </div>
+              <div class="text-xs text-blue-900 space-y-1.5">
+                <p>Account Name: <strong>Roderick Jr. Orfella / R******* J** O******</strong></p>
+                <div class="flex items-center gap-2 pt-0.5">
+                  <span>GCash Mobile Number:</span>
+                  <strong class="text-blue-700 bg-white px-2.5 py-1 rounded-lg border border-blue-300 font-mono text-sm tracking-wide">0976 126 9382</strong>
+                </div>
+                <p class="text-[11px] text-blue-700 pt-1 leading-relaxed">
+                  *Send payment via GCash Express Send. Paste your GCash reference number below, or send your receipt screenshot to our Instagram DM <a href="https://ig.me/m/bakemebebuu" target="_blank" class="underline font-bold text-blue-800">@bakemebebuu</a>.
+                </p>
+              </div>
+            </div>
+
+            <!-- Cash on Delivery (COD) Info Box -->
+            <div id="payment-details-cod" class="payment-details-box hidden bg-emerald-50/70 p-5 rounded-2xl border border-emerald-200/90 space-y-3">
+              <div class="flex items-center gap-2 text-emerald-800 font-bold text-sm">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <span>Cash on Delivery / Pickup Instructions</span>
+              </div>
+              <div class="text-xs text-emerald-900 space-y-1.5 leading-relaxed">
+                <p>Pay cash upon courier arrival at your delivery address, or at our Biñan, Laguna hub upon pickup.</p>
+                <p class="text-[11px] text-emerald-700">
+                  *Please prepare exact cash or let us know if you need change in the notes field!
+                </p>
+              </div>
+            </div>
+
+            <!-- Reference Number / Change Note Input -->
+            <div id="payment-ref-container">
+              <label id="payment-ref-label" for="payment-ref-number" class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+                GCash Reference Number <span class="text-rose-500">*</span>
+              </label>
+              <input type="text" id="payment-ref-number" placeholder="e.g. 902184029103 or 'Sending receipt via Instagram DM'" class="checkout-field w-full px-4 py-3 rounded-xl border border-stone-300 text-xs sm:text-sm focus:outline-none focus:border-rose-400 bg-stone-50/50" />
+            </div>
+          </div>
+
+          <!-- Submit Order Button -->
+          <div class="pt-2">
+            <button type="submit" class="btn-primary w-full py-4 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl">
+              <i class="fa-solid fa-check-circle"></i>
+              <span>Place Order Online Now</span>
+            </button>
+            <p class="text-center text-[11px] text-stone-500 mt-2">
+              Orders are backed by our freshness promise! You will receive a receipt and direct Instagram confirmation link.
+            </p>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Right Column: Order Summary -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-lg sticky top-28 space-y-6">
+          <div class="flex items-center justify-between border-b border-stone-100 pb-4">
+            <h3 class="font-serif font-bold text-xl text-stone-900">Order Summary</h3>
+            <span class="text-xs text-stone-500 font-medium">Bake Me, Bebu!</span>
+          </div>
+
+          <!-- Items list container -->
+          <div id="checkout-items-list" class="max-h-80 overflow-y-auto pr-1 divide-y divide-stone-100">
+            <!-- Rendered by jQuery -->
+          </div>
+
+          <!-- Totals Calculation -->
+          <div class="space-y-2.5 pt-4 border-t border-stone-100 text-xs sm:text-sm">
+            <div class="flex justify-between text-stone-600">
+              <span>Subtotal:</span>
+              <span id="checkout-subtotal" class="font-bold text-stone-800">₱0.00</span>
+            </div>
+            <div id="checkout-delivery-fee-row" class="flex justify-between text-stone-600">
+              <span>Courier Delivery Fee:</span>
+              <span id="checkout-delivery-fee" class="font-bold text-stone-800">₱80.00</span>
+            </div>
+            <div class="flex justify-between text-stone-900 text-base sm:text-lg font-serif font-bold pt-3 border-t border-stone-200">
+              <span>Grand Total:</span>
+              <span id="checkout-grand-total" class="text-blush-500">₱0.00</span>
+            </div>
+          </div>
+
+          <div class="bg-rose-50/60 p-4 rounded-2xl border border-rose-200/60 text-[11px] text-rose-800 space-y-1">
+            <p><strong><i class="fa-solid fa-heart mr-1"></i> The B.M.B. Guarantee:</strong></p>
+            <p>Every single batch is baked fresh on your celebration day. Handled with sincere care in Biñan, Laguna.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ORDER SUCCESS / RECEIPT MODAL -->
+  <div id="order-success-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div class="modal-overlay absolute inset-0"></div>
+    <div class="relative bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 text-center shadow-2xl z-10 border border-stone-100 max-h-[90vh] overflow-y-auto">
+      
+      <div class="w-16 h-16 mx-auto rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mb-4 animate-bounce">
+        <i class="fa-solid fa-check"></i>
+      </div>
+
+      <span class="text-xs uppercase tracking-widest font-bold text-emerald-600">Order Confirmed</span>
+      <h2 class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mt-1">Thank You, Sweetheart!</h2>
+      <p class="text-xs sm:text-sm text-stone-600 mt-1">
+        Your order has been recorded. Here is your official order receipt:
+      </p>
+
+      <!-- Printable Receipt Slip -->
+      <div id="printable-order-receipt" class="my-6 p-5 bg-stone-50 rounded-2xl border border-dashed border-stone-300 text-left space-y-3 font-sans">
+        <div class="flex justify-between items-center border-b border-stone-200 pb-3">
+          <div>
+            <h4 class="font-serif font-bold text-stone-900 text-base">Bake Me, Bebu!</h4>
+            <span class="text-[10px] text-stone-500 uppercase tracking-widest">Biñan, Laguna • @bakemebebuu</span>
+          </div>
+          <div class="text-right">
+            <span class="text-[10px] text-stone-400 block uppercase">Order ID</span>
+            <span id="receipt-order-id" class="font-mono font-bold text-xs sm:text-sm text-stone-900 bg-white px-2 py-0.5 rounded border border-stone-200"></span>
+          </div>
+        </div>
+
+        <div class="text-xs space-y-1 text-stone-700">
+          <p><strong>Customer:</strong> <span id="receipt-name"></span> (<span id="receipt-phone"></span>)</p>
+          <p><strong>Schedule:</strong> <span id="receipt-date-time"></span></p>
+          <p><strong>Fulfillment:</strong> <span id="receipt-fulfillment"></span></p>
+          <p><strong>Payment Mode:</strong> <span id="receipt-payment"></span></p>
+        </div>
+
+        <div class="pt-2 border-t border-stone-200">
+          <span class="text-[11px] font-bold text-stone-500 uppercase tracking-wider block mb-1">Items Ordered:</span>
+          <div id="receipt-items-breakdown" class="space-y-1"></div>
+        </div>
+
+        <div class="pt-2 border-t border-stone-200 flex justify-between items-center text-sm font-bold text-stone-900">
+          <span>Amount Paid / Total:</span>
+          <span id="receipt-grand-total" class="text-rose-600 text-base"></span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="space-y-3">
+        <a id="receipt-send-ig-btn" href="https://ig.me/m/bakemebebuu" target="_blank" class="w-full btn-primary py-3.5 rounded-full font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg">
+          <i class="fa-brands fa-instagram text-base"></i>
+          <span>Open Instagram DM with @bakemebebuu</span>
+        </a>
+
+        <button id="btn-copy-receipt-msg" type="button" class="w-full py-2.5 rounded-full border border-rose-300 bg-rose-50 text-rose-700 text-xs font-bold hover:bg-rose-100 transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-copy"></i>
+          <span id="copy-btn-label">Copy Order Details to Clipboard</span>
+        </button>
+
+        <div class="grid grid-cols-2 gap-3">
+          <button id="btn-print-receipt" type="button" class="py-2.5 rounded-full border border-stone-300 text-stone-700 text-xs font-semibold hover:bg-stone-100 transition flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-print"></i>
+            <span>Print Receipt</span>
+          </button>
+
+          <a href="index.html" class="py-2.5 rounded-full bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold transition flex items-center justify-center">
+            <span>Back to Home</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#231815] text-[#F7EFE5] pt-16 pb-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-stone-800">
+        
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full overflow-hidden border border-rose-400 flex-shrink-0">
+              <img src="images/bmb-profile.jpg" alt="Bake Me, Bebu! Logo" class="w-full h-full object-cover" />
+            </div>
+            <span class="font-serif font-bold text-2xl text-white tracking-tight">Bake Me, Bebu!</span>
+          </div>
+          <p class="text-stone-400 text-xs sm:text-sm leading-relaxed max-w-sm">
+            Where warmth and kindness bake together. Homemade cookies, mini bouquet cakes, crinkles, cupcakes, and classic banana bread straight from Biñan, Laguna.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://www.instagram.com/bakemebebuu/" target="_blank" class="w-9 h-9 rounded-full bg-stone-800 hover:bg-rose-600 text-stone-300 hover:text-white flex items-center justify-center transition" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="space-y-3 text-xs sm:text-sm">
+          <h4 class="font-serif font-bold text-white tracking-wider uppercase text-sm">Explore</h4>
+          <ul class="space-y-2 text-stone-400">
+            <li><a href="index.html" class="hover:text-rose-300 transition">Home</a></li>
+            <li><a href="products.html" class="hover:text-rose-300 transition">Order Menu</a></li>
+            <li><a href="products.html#reseller-program" class="hover:text-rose-300 transition">Reseller Program</a></li>
+            <li><a href="checkout.html" class="hover:text-rose-300 transition">Checkout</a></li>
+            <li><a href="about.html" class="hover:text-rose-300 transition">Our Story</a></li>
+            <li><a href="contact.html" class="hover:text-rose-300 transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3 text-xs sm:text-sm">
+          <h4 class="font-serif font-bold text-white tracking-wider uppercase text-sm">Baking Schedule</h4>
+          <div class="text-stone-400 space-y-1">
+            <p><strong class="text-stone-300">Tuesday - Sunday:</strong></p>
+            <p>Fresh batches baked daily</p>
+            <p class="pt-2"><strong class="text-stone-300">Location Hub:</strong></p>
+            <p class="text-rose-400">Biñan, Laguna</p>
+          </div>
+        </div>
+
+        <div class="space-y-3 text-xs sm:text-sm">
+          <h4 class="font-serif font-bold text-white tracking-wider uppercase text-sm">Pickup & Delivery</h4>
+          <div class="text-stone-400 space-y-2">
+            <p class="flex items-start gap-2">
+              <i class="fa-solid fa-location-dot text-rose-400 mt-1"></i>
+              <span>Biñan, Laguna & South Luzon</span>
+            </p>
+            <p class="flex items-start gap-2">
+              <i class="fa-solid fa-truck-fast text-rose-400 mt-1"></i>
+              <span>Grab / Lalamove / Hub Pickup</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
+        <p>© 2026 Bake Me, Bebu! All rights reserved.</p>
+        <p class="flex items-center gap-1">
+          Made with <i class="fa-solid fa-heart text-rose-500"></i> for <a href="https://www.instagram.com/bakemebebuu/" target="_blank" class="text-rose-400 underline">@bakemebebuu</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- jQuery & Custom Script -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
